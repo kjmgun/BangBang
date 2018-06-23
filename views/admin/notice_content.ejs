@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>방방곡곡 홈페이지</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
+    <!-- Custom styles for this template -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/style.css">
+    <link href="/vendor/bootstrap/css/style-responsive.css" rel="stylesheet">
+    <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="toggle-menu" class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!-- Sidebar -->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <h3 class="centered" style="color:bisque">방방곡곡</h3>
+                <li class="mt">
+                    <a href="/">
+                            <i class="fa fa-dashboard" style="color:#20B38E"></i>
+                            <span style="color:#20B38E">홈화면</span>
+                        </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/notice" style="color:yellow">
+                            <i class="fa fa-tasks" style="color:yellow"></i>
+                            <span>공지사항</span>
+                        </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/main" style="color:deeppink;">
+                            <i class="fa fa-desktop" style="color:deeppink;"></i>
+                            <span>방송 화면</span>
+                        </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/story" style="color:darkorange">
+                            <i class=" fa fa-bar-chart-o" style="color:darkorange"></i>
+                            <span>여행지 신청하기</span>
+                        </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/review" style="color:darkseagreen">
+                            <i class="fa fa-tasks" style="color:darkseagreen"></i>
+                            <span>후기 남기기</span>
+                        </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="#" onclick="loginout(event)" style="color:cornflowerblue">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                            <span id="AUTH_STATE" class="blue-text">(인증되지 않음)</span>
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <section id="main-content">
+        <section class="wrapper">
+            <div align='center'>
+                <a href="#" class="logo"><b><%= notice[0].Notice_ID %>번 공지사항 입니다.</b></a>
+            </div>
+            <div class="container">
+                <div class="notice_contents">
+                    <div>
+                        <div>
+                            <span> 제  목 : </span>
+                            <span><%= notice[0].Notice_Title %></span>
+                        </div>
+                        <div>
+                            <span> 작성자 : </span>
+                            <span>관리자</span>
+                        </div>
+                        <div>
+                            <span> 작성일 : </span>
+                            <span><%=  new Date(notice[0].Notice_Date).toLocaleString() %></span>
+                        </div>
+                    </div>
+                    <div>내용</div>
+                    <div class="content_content">
+                        <%= notice[0].Notice_Content %>
+                    </div>
+                    <form action="/admin/notice">
+                        <input type="submit" class="send btn-lg btn-border" value="돌아가기">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- /#page-content-wrapper -->
+    <br>
+
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="/vendor/bootstrap/js/common-scripts.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="/js/sb-admin-datatables.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script src="/firebase/firebase.js"></script>
+    <script src="/firebase/firebase_use.js"></script>
+
+</body>
+
+</html>

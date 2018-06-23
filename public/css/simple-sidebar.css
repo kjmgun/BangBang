@@ -1,0 +1,259 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+  overflow-x: hidden;
+    background-color : pink;
+}
+textarea{
+    width:100%;
+}
+#main-content{
+    padding-top: 5rem;
+}
+#menu-toggle{
+    position: fixed;
+    z-index: 10000;
+    padding: 1%;
+}
+.tooltips{
+    color: white;
+    font-size: 250%;
+}
+.table{
+    background-color: white;
+}
+.btn{
+    background-color: blue;
+    padding: -0.1rem;
+}
+.write-btn{
+    float:right;
+    margin-right:5%;
+    font-size: 1.5rem;
+    color: white;
+}
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+}
+
+#page-content-wrapper {
+ position: relative;
+    margin-right: 0;
+       width: 100%;
+    padding-bottom: 56.25%
+}
+#addiv {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+#addiv >img{
+    width: 100%;
+    height: auto;
+}
+
+#page-content-wrapper iframe{
+ position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin-top: 3.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav>.sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 0;
+  }
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+  #sidebar-wrapper {
+    width: 0;
+   
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+    
+  }
+  #page-content-wrapper {
+    padding: 10px;
+    position: relative;
+  }
+    #addiv {
+        position: relative;
+    }
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+   
+  }
+     #wrapper.toggled #page-content-wrapper iframe {
+    position: absolute;
+   
+  }
+}
+@media(min-width:400px) {
+  #wrapper {
+    padding-left: 0;
+  }
+  #wrapper.toggled {
+    padding-left: 150px;
+  }
+  #sidebar-wrapper {
+    width: 0;
+    
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 150px;
+    
+  }
+  #page-content-wrapper {
+    padding: 10px;
+    position: relative;
+  }
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+   
+  }
+     #wrapper.toggled #page-content-wrapper iframe {
+    position: absolute;
+   
+  }
+}
+
+.chat {
+    width: 100%;
+    padding: 2%;
+    
+}
+.chat-messages,
+.chat textarea,
+.chat-name {
+    border:1px solid #bbb;
+}
+
+.chat-messages {
+    width:100%;
+    height:300px;
+    overflow-y:scroll;
+    padding:10px;
+}
+
+.chat-message {
+    margin-bottom:10px;
+}
+
+.chat-name {
+    width:100%;
+    padding:10px;
+}
+
+.chat textarea {
+    width:100%;
+    padding:10px;
+    margin:0;
+    border-top:0;
+    max-width:100%;
+}
+
+.chat-status {
+    color:deepskyblue;
+}
+
+.chat textarea,
+.chat-name {
+    outline:none;
+}
+
+.youtubeWrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%
+}
+.youtubeWrap iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

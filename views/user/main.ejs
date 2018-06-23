@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>방방곡곡 홈페이지</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
+    <!-- Custom styles for this template -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/bootstrap/css/style.css">
+    <link href="/vendor/bootstrap/css/style-responsive.css" rel="stylesheet">
+    <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <style>
+        .send {
+            position: relative;
+            padding-right: 6rem;
+        }
+
+        button {
+            position: absolute;
+            bottom: 0.1rem;
+            right: 0px;
+            height: 100%
+        }
+
+        textarea {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="toggle-menu" class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" style="color:black"></div>
+        </div>
+        <!-- Sidebar -->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <h3 class="centered" style="color:bisque">방방곡곡</h3>
+                    <li class="mt">
+                        <a href="/">
+                            <i class="fa fa-dashboard" style="color:#20B38E"></i>
+                            <span style="color:#20B38E">홈화면</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/notice" style="color:yellow">
+                            <i class="fa fa-tasks" style="color:yellow"></i>
+                            <span>공지사항</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/main" style="color:deeppink;">
+                            <i class="fa fa-desktop" style="color:deeppink;"></i>
+                            <span>방송 화면</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/story" style="color:darkorange">
+                            <i class=" fa fa-bar-chart-o" style="color:darkorange"></i>
+                            <span>여행지 신청하기</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/review" style="color:darkseagreen">
+                            <i class="fa fa-tasks" style="color:darkseagreen"></i>
+                            <span>후기 남기기</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="#" onclick="loginout(event)" style="color:cornflowerblue">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                            <span id="AUTH_STATE" class="blue-text">(인증되지 않음)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- /#sidebar-wrapper -->
+        <section id="main-content">
+            <!-- Page Content -->
+            <div align='center'>
+                <a href="#" class="logo"><b>ON AIR</b></a>
+            </div>
+            <div id="page-content-wrapper">
+                <div class="youtubeWrap">
+
+                    <script>
+                        // 2. This code loads the IFrame Player API code asynchronously.
+                        var tag = document.createElement('script');
+
+                        tag.src = "https://www.youtube.com/iframe_api";
+                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                        // 3. This function creates an <iframe> (and YouTube player)
+                        //    after the API code downloads.
+                        var player;
+
+                        function onYouTubeIframeAPIReady() {
+                            player = new YT.Player('page-content-wrapper', {
+                                height: '560',
+                                width: '315',
+                                videoId: 'izYiDDt6d8s',
+
+                                events: {
+                                    'onReady': onPlayerReady,
+                                    'onStateChange': onPlayerStateChange
+                                }
+                            });
+                        }
+
+                        // 4. The API will call this function when the video player is ready.
+                        function onPlayerReady(event) {
+                            event.target.playVideo();
+                        }
+
+                        // 5. The API calls this function when the player's state changes.
+                        //    The function indicates that when playing a video (state=1),
+                        //    the player should play for six seconds and then stop.
+                        var done = false;
+
+                        function onPlayerStateChange(event) {
+                            if (event.data == YT.PlayerState.PLAYING && !done) {
+                                setTimeout(stopVideo, 60000000);
+                                done = true;
+                            }
+                        }
+
+                        function stopVideo() {
+                            player.stopVideo();
+                        }
+                    </script>
+                </div>
+
+            </div>
+            <!-- /#page-content-wrapper -->
+            <div id="addiv"><img src="img/ad.JPG">
+            </div>
+            <div class="chat">
+                <input type="text" class="chat-name" placeholder="이름을 입력하세요">
+                <div class="chat-messages"></div>
+                <div class="send">
+                    <textarea class="sendchat" rows="3" placeholder="메세지를 입력하세요"></textarea>
+                    <button class="btn-lg btn-theme btn-border">전송하기</button>
+                </div>
+                <div class="chat-status">Status:<span>채팅서버 활성화</span></div>
+            </div>
+        </section>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="/vendor/bootstrap/js/common-scripts.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="/js/sb-admin-datatables.min.js"></script>
+    
+    <!-- server core script -->
+    <script src="https://stark-plateau-86360.herokuapp.com/socket.io/socket.io.js"></script>
+    <script>
+        (function() {
+            var getNode = function(s) {
+                    return document.querySelector(s);
+                },
+
+                status = getNode('.chat-status span'),
+                messages = getNode('.chat-messages'),
+                textarea = getNode('.chat textarea'),
+                chatName = getNode('.chat-name'),
+                button = getNode('.chat button'),
+
+                statusDefault = status.textContent,
+
+                setStatus = function(s) {
+                    status.textContent = s;
+
+
+                    if (s !== statusDefault) {
+                        var delay = setTimeout(function() {
+                            setStatus(statusDefault);
+                            clearInterval(delay);
+                        }, 3000);
+                    }
+                };
+
+            setStatus('채팅 서버 대기중');
+
+            try {
+                var socket = io.connect('https://stark-plateau-86360.herokuapp.com');
+            } catch (e) {}
+            if (socket !== undefined) {
+
+                socket.on('output', function(data) {
+                    if (data.length) {
+                        for (var x = 0; x < data.length; x = x + 1) {
+                            var message = document.createElement('div');
+                            message.setAttribute('class', 'chat-message');
+                            message.textContent = data[x].name + ':' + data[x].message;
+
+                            messages.appendChild(message);
+                            messages.insertBefore(message, messages.firstChild);
+                        }
+                    }
+                });
+
+                socket.on('status', function(data) {
+                    setStatus((typeof data === 'object') ? data.message : data);
+
+                    if (data.clear === true) {
+                        textarea.value = '';
+                    }
+                });
+
+
+                textarea.addEventListener('keydown', function(event) {
+                    var self = this,
+                        name = chatName.value;
+
+
+
+                    if (event.which === 13 && event.shiftKey === false) {
+                        socket.emit('input', {
+                            name: name,
+                            message: self.value
+                        });
+                        event.preventDefault();
+                    }
+                });
+
+                button.addEventListener('click', function(event) {
+                    var text = textarea.value,
+                        name = chatName.value;
+
+                    socket.emit('input', {
+                        name: name,
+                        message: text
+                    });
+                    event.preventDefault();
+                });
+
+            }
+
+
+        })();
+    </script>
+    <!-- Channel Plugin Scripts -->
+    <script>
+        window.channelPluginSettings = {
+            "plugin_id": "73160b9b-184d-4f6f-a0b0-4f758715165c"
+        };
+        (function() {
+            var node = document.createElement('div');
+            node.id = 'ch-plugin';
+            document.body.appendChild(node);
+            var async_load = function() {
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+                s.charset = 'UTF-8';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            };
+            if (window.attachEvent) {
+                window.attachEvent('onload', async_load);
+            } else {
+                window.addEventListener('load', async_load, false);
+            }
+        })();
+    </script>
+    <!-- End Channel Plugin -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script src="/firebase/firebase.js"></script>
+    <script src="/firebase/firebase_use.js"></script>
+    <script type="text/javascript">
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                $(".chat-name").val(user.displayName);
+            } else {
+                $(".chat-name").val("");
+            }
+        });
+    </script>
+</body>
+
+</html>

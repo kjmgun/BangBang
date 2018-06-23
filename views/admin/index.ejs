@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>방방곡곡 메인화면</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom fonts for this template -->
+	<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+	<!-- Custom styles for this template -->
+	<link href="css/grayscale.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<a id="isLogin" class="navbar-brand js-scroll-trigger" href="#page-top">방방곡곡</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu
+				<i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<button id="BTN_GOOGLE_LOGIN" type="button" class="nav-link">
+							<i class="fa fa-google" aria-hidden="true">
+								<span id="AUTH_STATE" class="blue-text">(인증되지 않음)</span>
+							</i>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Intro Header -->
+	<header class="masthead">
+		<div class="intro-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 mx-auto">
+						<h1 class="brand-heading">방 방 곡 곡</h1>
+						<p class="intro-text">안녕하세요 관리자님
+							<br>관리자 페이지로 이동할까요?</p>
+						<a href="/admin/main" style="border:1px solid white; border-radius:3px; color:white; font-size:3rem;">
+							페이지 관리
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p>Copyright &copy; BangBangGokGok 2017 AllRightReserves</p>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+	<!-- Custom scripts for this template -->
+	<script src="/js/grayscale.min.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+	<script src="/firebase/firebase.js"></script>
+	<script src="/firebase/firebase_use.js"></script>
+	<script type="text/javascript">
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				$("#AUTH_STATE").text("Logout");
+				$("#isLogin").text(user.displayName + "님 환영합니다.(관리자)");
+			} else {
+				$("#AUTH_STATE").text("Login");
+				$("#isLogin").text("방방곡곡");
+			}
+		});
+	</script>
+</body>
+
+</html>
